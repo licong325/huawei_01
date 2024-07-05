@@ -1,6 +1,6 @@
 @Entry
 @Component
-struct Index {
+struct Index_01 {
 
   // 基础组件练习
 

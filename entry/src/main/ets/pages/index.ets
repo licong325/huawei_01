@@ -1,31 +1,21 @@
 @Entry
 @Component
 struct Index {
+  @State message: string = 'Hello World';
+
   build() {
-    //   华为登录页面练习
-    Column({
-      space: 20
-    }) {
-      Image($r("app.media.huawei_logo")).width(100).height(100)
-      TextInput({
-        placeholder: "请输入用户名",
-      })
-      TextInput({
-        placeholder: "请输入密码"
-      }).type(InputType.Password)
-      Button("登录").width("100%").onClick(() => {
-        console.log("登录测试成功")
-      })
-      Row({
-        space: 12
-      }) {
-        Text("前往注册").onClick(() => {
-          console.log("前往注册账号")
-        })
-        Text("忘记密码").onClick(() => {
-          console.log("忘记密码了")
-        })
-      }
-    }.width("100%").padding(20)
+   Column({
+     space:10
+   }){
+     Image($r("app.media.huawei_logo")).width(200).borderWidth(1).borderColor(Color.Red).borderRadius(50)
+     Text("这是个很牛逼的人").fontSize(18).fontWeight(700)
+     Button("QQ登录").onClick(() => {
+       console.log("调取qq登录")
+     }).width("100%").margin({ top:26 })
+     Button("微信登录").onClick((event: ClickEvent) => {
+       console.log(event.toString())
+       console.log("微信登录")
+     }).width("100%").backgroundColor(Color.Gray)
+   }.width("100%").padding(20)
   }
 }
