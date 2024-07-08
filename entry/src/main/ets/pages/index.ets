@@ -3,19 +3,32 @@
 struct Index {
   @State message: string = 'Hello World';
 
+  // 背景图练习，在鸿蒙中，默认单位是vp，会自动根据设备转换为px
+  /*build() {
+      Row() {
+      }
+      .width(300)
+      .height(200)
+      .backgroundColor(Color.Orange)
+      .backgroundImage($r("app.media.activity_gift"))  //使用固定位置或者x和y
+      // 以前背景定位默认不支持vp，当前版本已经支持
+      // .backgroundImagePosition({
+      //   x: 10, y: 10
+      // })
+      .backgroundImagePosition(Alignment.Center)
+      .backgroundImageSize(ImageSize.Contain)
+  }*/
+
+  // 线性布局(就是flex布局)，不知道单词时，ctrl+p 显示提示
   build() {
-   Column({
-     space:10
-   }){
-     Image($r("app.media.huawei_logo")).width(200).borderWidth(1).borderColor(Color.Red).borderRadius(50)
-     Text("这是个很牛逼的人").fontSize(18).fontWeight(700)
-     Button("QQ登录").onClick(() => {
-       console.log("调取qq登录")
-     }).width("100%").margin({ top:26 })
-     Button("微信登录").onClick((event: ClickEvent) => {
-       console.log(event.toString())
-       console.log("微信登录")
-     }).width("100%").backgroundColor(Color.Gray)
-   }.width("100%").padding(20)
+    Column() {
+      Text("第一一个").width(100).height(50).backgroundColor(Color.Pink).border({width:1,style:BorderStyle.Solid})
+      Text("sadas").width(100).height(50).backgroundColor(Color.Pink).border({width:1,style:BorderStyle.Solid})
+      Text("as").width(100).height(50).backgroundColor(Color.Pink).border({width:1,style:BorderStyle.Solid})
+    }.width("100%").height("50%").backgroundColor("#ccc")
+  //   主轴对齐方式
+    .justifyContent(FlexAlign.SpaceEvenly)
+    // 副轴对齐方式
+    .alignItems(HorizontalAlign.End)
   }
 }
