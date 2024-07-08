@@ -20,7 +20,7 @@ struct Index {
   }*/
 
   // 线性布局(就是flex布局)，不知道单词时，ctrl+p 显示提示
-  build() {
+  /*build() {
     Column() {
       Text("第一一个").width(100).height(50).backgroundColor(Color.Pink).border({width:1,style:BorderStyle.Solid})
       Text("sadas").width(100).height(50).backgroundColor(Color.Pink).border({width:1,style:BorderStyle.Solid})
@@ -30,5 +30,25 @@ struct Index {
     .justifyContent(FlexAlign.SpaceEvenly)
     // 副轴对齐方式
     .alignItems(HorizontalAlign.End)
+  }*/
+
+
+  // ------------------分割线-----------------------------------------
+  // 自适应伸缩布局
+  build() {
+    Column({space:20}){
+      // layoutWeight() 会减去固定尺寸的元素，然后按照剩余空间，按照份数进行分配
+
+      Row({space:10}){
+        Text("左侧").layoutWeight(1).height(100).backgroundColor(Color.Pink)
+        Text("右侧").width(100).height(100).backgroundColor(Color.Green)
+      }.width("100%").height(100).borderWidth(1)
+
+      Row({space:10}){
+        Text("左侧").layoutWeight(1).height(100).backgroundColor(Color.Pink)
+        Text("中间").layoutWeight(2).height(100).backgroundColor(Color.Pink)
+        Text("右侧").width(60).height(100).backgroundColor(Color.Green)
+      }.width("100%").height(100).borderWidth(1)
+    }.width("100%").height("100%").backgroundColor("#bbb").padding(10)
   }
 }
